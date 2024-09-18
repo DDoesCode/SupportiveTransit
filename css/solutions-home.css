@@ -1,0 +1,940 @@
+/* STYLES FOR SOLUTION SUBSITE */
+/* MAIN STYLE RESETS */
+
+h1{
+	color: #fff;
+}
+h2{
+	color: #444;
+}
+.infobox > h1{
+	color: #444;
+}
+
+/* HIDE EXTERNAL SHARE BOX */
+#DeltaPageStatusBar{
+	display: none;
+}
+
+/* MAIN NAVIGATION */
+
+#header ul.main-menu>li{
+	margin: 0 1em;
+}
+
+/* START MAIN SECTION */
+#spotlight{
+	background-image: url(https://microsoft.sharepoint.com/teams/GlobalLegalHackathon/SiteAssets/AppImages/MSC17_GLZyouth_019wide.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;
+}
+
+#backimg{
+	background-image: url(https://microsoft.sharepoint.com/teams/GlobalLegalHackathon/SiteAssets/AppImages/Ofc17_Meeting_015widelogoV3.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;
+	height: 58em;
+}
+
+#globalimg{
+	background-image: url(https://microsoft.sharepoint.com/teams/celaDigitalWorkplace/SiteAssets/Win16a_BCN_Architects_Device_MicrosoftSurfaceBook_0006.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;
+}
+
+#biimg{
+	background-image: url(https://microsoft.sharepoint.com/teams/celaDigitalWorkplace/SiteAssets/laptopbi.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;
+}
+
+#articleimg{
+	background-image: url(https://microsoft.sharepoint.com/teams/celaDigitalWorkplace/SiteAssets/OFF12_Joi_01.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;
+}
+
+.headline{
+    background-color: rgba(0,0,0,.3);
+    width: 100%;
+    padding: 14em 2em;
+	margin: auto;
+}
+
+#spotlight > .headline{
+	padding: 12em 2em;
+}
+
+.mainhead{
+	z-index: 9999;
+	color: #fff;
+	font-size: 5em;
+	font-weight: 800;
+}
+
+.subhead{
+	z-index: 9999;
+	color: #fff;
+	font-size: 2em;
+	padding-bottom: 1em;
+}
+
+@media only screen and (max-width: 40em){
+	.mainhead{
+	z-index: 9999;
+	color: #fff;
+	font-size: 3em;
+	font-weight: 800;
+	}
+	
+	.subhead{
+	z-index: 9999;
+	color: #fff;
+	font-size: 1.75em;
+	padding-bottom: 1em;
+	}
+}
+/* HOME PAGE STYLES */
+/* STYLES FOR COLORED BOXES */
+
+.widget{
+	padding: 4em 1.25em;
+	background-color: #f2f2f2;
+	text-align: center;
+}
+
+.white-back{
+	background-color: #fff;
+}
+
+.colorboxsection{
+	max-width: 82em;
+	margin: auto;
+}
+
+.color-block{
+	margin-bottom: 1.25em;
+	color: #fff;
+	border-radius: 25px;
+	max-width: 25em;
+	margin: auto;
+}
+
+.p30{
+	font-size: 1.65em;
+	margin: auto;
+	padding: .25em 1em .75em 1em;
+	min-height: 3.5em;
+}
+
+.inner{
+	padding: 1.25em;
+	margin-bottom: 1em;
+}
+
+a.button{
+	height: 3em;
+	line-height: 3em;
+	background-color: rgba(0,0,0,.15);
+	transition: background-color 150ms;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	border-radius: 10px;
+	border: none;
+	font-size: 1.15em;
+	padding: 0 0.8125em;
+	font-weight: 500;
+	display: inline-block;
+	color: #fff;
+	outline: none;
+	text-decoration: none;
+	margin-bottom: .8em;
+	display: block;
+}
+
+a.button:hover,
+a.button:focus{
+	background-color: rgba(0,0,0,.25);
+}
+
+a.button:focus{
+	border: 1px solid blue;
+}
+
+img.boxheader{
+	transform: translate3d(0,0,0);
+	border: 0;
+	max-width: 100%;
+	width: 100%;
+	display: block;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	margin: auto;
+}
+
+
+/* START MS AWESOME SECTION */
+.ms-awesome-section{
+	max-width: 82em;
+	margin: auto;
+}
+
+.awesome{
+	font-size: 7em;
+	color: #fff;
+	background-color: #008272;
+	padding: .3em;
+	border-radius: 100px;
+}
+
+.flex-shift > h2{
+	font-size: 2em;
+	padding-top: 1em;
+}
+
+.p20{
+	font-size: 1.25em;
+	margin: auto;
+	padding: 1.5em 1em;
+}
+
+@media only screen and (min-width: 40em){
+	.flex-awesome{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		position: relative;
+		z-index: 10;
+	}
+
+	.flex-shift{
+		flex-basis: calc(50% - 1.25em);
+		margin: 0.625em;
+		max-width: none;
+	}
+}
+
+@media only screen and (min-width: 86em){
+	.flex-shift{
+		flex-basis: calc(33% - 20px);
+	}
+}	
+
+/* END MS AWESOME SECTION */
+
+/* START BOTTOM IMG SECTION */
+
+a.buttonbottom{
+	height: 3em;
+	line-height: 3em;
+	background-color: rgba(255,255,255,.75);
+	transition: background-color 150ms;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	border-radius: 10px;
+	border: none;
+	font-size: 1em;
+	padding: 0 0.8125em;
+	font-weight: 500;
+	display: inline-block;
+	color: #444;
+	outline: none;
+	text-decoration: none;
+}
+
+a.buttonbottom:hover,
+a.buttonbottom:focus{
+	background-color: rgba(255,255,255,.5);
+}
+
+a.buttonbottom:focus{
+	border: 1px solid blue;
+}
+
+/* START GALLERY PAGE */
+
+.container{
+	max-width: 86em;
+	margin: auto;
+}
+
+/* START GALLERY HERO IMAGES */
+#fullsolutions{
+	background-image: url(https://microsoft.sharepoint.com/teams/celabsmdev/solutions/assets/MSSurface_Book_Engineering_Seattle_0283.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;
+}
+
+#formsworkflow{
+	background-image: url(https://microsoft.sharepoint.com/teams/celabsmdev/solutions/assets/OFF12_Envy_02.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;	
+}
+
+#newsletters{
+	background-image: url(https://microsoft.sharepoint.com/teams/celabsmdev/solutions/assets/Win16a_LA_Artist_Device_MicrosoftSurfaceBook_0090.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;	
+}
+
+#portals{
+	background-image: url(https://microsoft.sharepoint.com/teams/celabsmdev/solutions/assets/MSSurface_Pro4_Alcantara_0447_RGB.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;	
+}
+
+#projecttracking{
+	background-image: url(https://microsoft.sharepoint.com/teams/celabsmdev/solutions/assets/OFF14_Austin_Tal_Alejandro_BrittanyA_06.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;	
+}
+
+#heroplacehold1{
+	background-image: url(https://microsoft.sharepoint.com/teams/celabsmdev/solutions/assets/OFF14_Austin_Tal_Alejandro_BrittanyA_06.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;		
+}
+
+#heroplacehold2{
+	background-image: url(https://microsoft.sharepoint.com/teams/celabsmdev/solutions/assets/OFF14_Austin_Tal_Alejandro_BrittanyA_06.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	margin: auto;		
+}
+/* END GALLERY HERO IMAGES */
+
+/* START SECONDARY NAVIGATION */
+a.secondbutton{
+	height: 3em;
+	line-height: 3em;
+	border-radius: 15px;
+	border: none;
+	font-size: 1.25em;
+	padding: 0 2em;
+	display: inline-block;
+	color: #444;
+	outline: none;
+	text-decoration: none;
+}
+
+a.secondbutton:hover{
+	background-color: rgba(191,206,214,1);
+	transition: background-color 150ms;
+}
+
+a.secondbutton:focus{
+	border: 1px solid blue;
+}
+
+nav > ul > li{
+	margin-right: 2em;
+}
+
+nav.widget{
+	padding: .25em 1.25em;
+	background: #f2f2f2;
+}
+
+@media only screen and (max-width: 47.9375em){
+	a.secondbutton{
+		padding: 0 2em;
+	}	
+}
+
+/* END SECONDARY NAVIGATION */
+
+.showcase-top{
+	max-width: 82em;
+}
+
+img.showcase{
+	border-radius: 15px;
+	max-width: 56.25em;
+	float: left;
+	width: 100%;
+}
+
+.infobox{
+	overflow: hidden;
+	padding-left: 1.5em;
+}
+
+.solutionbutton{
+	float: left;
+	margin-top: 1em;
+}
+
+@media only screen and (max-width: 79em){
+	.solutionbutton{
+		float: none;
+	}
+}
+/* END GALLERY PAGE */
+
+
+/* START BACK TO TOP */
+#backtop{
+	font-size: 1.25em;
+	margin: auto;
+	padding-top: 1em;
+}
+
+#backtop > .awesome{
+	font-size: 1em;
+	padding: .5em;
+	border-radius: 10px;
+}
+
+#backtop > .ms-Icon--DoubleChevronUp:before{
+	padding-right: .5em;
+}
+
+@media only screen and (max-width: 40.9375em){
+	#backtop > .ms-Icon{
+		width: 100%;
+		margin-top: .5em;
+	}
+}
+/* END BACK TO TOP */
+
+
+/* MISC STYLES */
+
+.float-left{
+	float: left;
+	overflow: hidden;
+}
+
+.float-right{
+	float: right;
+	overflow: hidden;
+}
+
+.align-left{
+	text-align: left;
+	padding: 1em .5em 0 0;
+}
+
+.align-top{
+	padding-top: 0;
+}
+
+.inline{
+	display: inline;
+	font-family: segoe ui;
+}
+
+.border-top{
+	border-top: 1px solid #eee;
+	margin-top: 3em;
+}
+
+.border-top-dark{
+	border-top: 1px solid #fff;
+	margin-top: 8em;
+}
+
+ul.nobullet{
+	list-style-type: none;
+	margin-left: 0;
+	padding: 0;
+}
+
+.clear{
+	clear: both;
+}
+
+.infobox{
+	overflow: hidden;
+	padding-left: 1.5em;
+}
+
+.solutionbutton{
+	float: left;
+	margin-top: 1em;
+}
+
+@media only screen and (max-width: 79em){
+	.solutionbutton{
+		float: none;
+	}
+}
+/* END GALLERY PAGE */
+
+
+/* START HEADLINE HEROES */
+/* Start Section Styles */
+	.floatingbox {
+		color: #212121;
+		font-family: "Segoe UI";
+		line-height: 1.5;
+		max-width: 100%;
+		min-width: 19.6875em;
+		width: 100%;       
+		}
+				
+/* End Section Styles */
+
+/* Start Box Styles */
+	.floatingbox-link {
+		background: #fff;
+		margin: 1px 1em 1em 1px;
+		display: inline-block;
+		min-width: 240px;
+        text-decoration: none;
+        position: relative;
+		}		
+	.floatingbox-linktop {
+		color: #fff;
+		font-size: 1em;
+		font-weight: 400;
+		overflow: hidden;
+		padding: 0;
+		position: relative;
+		}	
+	.floatingbox-image {
+		display: block;
+		border-style: none;
+		height: auto;
+		max-height: 90vh;
+		max-width: 100%;
+		vertical-align: middle;
+		width: 100%;        
+		}		
+	.floatingbox-title {
+		display: flex;
+		padding: .25em .5em;
+		background-color: rgba(0,0,0,.8);
+		border-radius: 0 0 5px 5px;
+		}
+	.floatingbox-desc {
+		padding: 1em;
+		text-align: left;
+		max-width: 100%;
+		white-space: normal;
+        color: #212121;
+		}	
+/* End Box Styles */
+
+/* Start Syles at around 1080px in width 67.5 = 1080px */		
+@media (min-width: 67.5em){
+	.floatingbox-content {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		margin: 0 auto;
+		max-width: 87em;
+		}	
+	.floatingbox-linktop {
+		font-size: 1em;
+		background-color: #000000;
+		}
+	.floatingbox-title {
+		background-color: rgba(0,0,0,.4);
+		border-radius: 5px 5px 0 0;
+		color: #fff;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		}
+	.floatingbox-image {
+		display: block;
+		border-style: none;
+		height: auto;
+		vertical-align: middle;
+		width: 100%;        
+		}			
+	.floatingbox-link {
+		flex-basis: calc(33% - 20px);
+		width: 100%;
+		}
+	}	
+/* End Styles at 1080p */ 
+
+/* END HEADLINE HEROES */
+
+
+/* START WEBPART GLOBAL LEGAL RESEARCH LIBRARY */
+#WebPartWPQ2{
+	margin: 7em 20em;
+}
+
+.ms-ppleft{
+	font-size: 1.5em;
+}
+
+.ms-ppright{
+	width: 90%
+}
+
+.ms-formtable{
+	font-size: 1.5em;
+}
+
+.ms-formlabel{
+	font-weight: bold;
+	padding: .5em;
+}
+
+.ms-formtable tr:nth-child(odd){
+	background-color: rgba(0,0,0,.1);
+}
+
+.s4-wpActive > .ms-webpart-chrome{
+	background-color: #fff;
+}
+
+@media only screen and (max-width: 113em){
+	#WebPartWPQ2{
+		margin: 7em 10em;
+	}
+}
+
+@media only screen and (max-width: 87em){
+	#WebPartWPQ2{
+		margin: 3.5em 0em;
+	}
+}
+
+/* END WEBPART GLOBAL LEGAL RESEARCH LIBRARY */
+
+
+/* START POWER BI PAGE WEBPARTS */
+
+#MSOZoneCell_WebPartWPQ2{
+	background-color: #fff;
+}
+
+/* END POWER BI PAGE WEBPARTS */
+
+
+/* START BACK TO TOP */
+#backtop{
+	font-size: 1.25em;
+	margin: auto;
+	padding-top: 1em;
+	margin-bottom: 3em;
+}
+
+#backtop > .ms-Icon{
+	font-size: 1em;
+	padding: .5em;
+	border-radius: 10px;
+}
+
+#backtop > .ms-Icon--DoubleChevronUp:before{
+	padding-right: .5em;
+}
+
+@media only screen and (max-width: 40.9375em){
+	#backtop > .ms-Icon{
+		width: 100%;
+		margin-top: .5em;
+	}
+}
+/* END BACK TO TOP */
+
+
+/* MISC STYLES */
+
+.whitetext{
+	color: #fff;
+}
+
+.float-left{
+	float: left;
+	overflow: hidden;
+}
+
+.float-right{
+	float: right;
+	overflow: hidden;
+}
+
+.align-left{
+	text-align: left;
+	padding: 1em .5em 0 0;
+}
+
+.align-top{
+	padding-top: 0;
+}
+
+.inline{
+	display: inline;
+	font-family: segoe ui;
+}
+
+.border-top{
+	border-top: 3px solid #eee;
+	margin-top: 3em;
+}
+
+.border-top-dark{
+	border-top: 3px solid #fff;
+	margin-top: 8em;
+}
+
+ul.nobullet{
+	list-style-type: none;
+	margin-left: 0;
+	padding: 0;
+}
+
+.clear{
+	clear: both;
+}
+
+.orange-back{
+	background-color: #d83b01;
+}
+
+.green-back{
+	background-color: #107c10;
+}
+
+.purple-back{
+	background-color: #5c005c;
+}
+
+.blue-back{
+	background-color: rgba(0,120,215,1);
+}
+
+
+@media only screen and (max-width: 79em){
+	.infobox{
+		clear: both;
+	}
+	
+	.border-top{
+		margin-top: 2em;
+	}
+	
+	.border-top-dark{
+		margin-top: 2em;
+	}
+}
+
+
+/* COLOR BACKGROUNDS */
+
+.color-teal{
+	background-color: #008272;
+	max-width: 25em;
+}
+
+.color-blue{
+	background-color: #3232ff;
+	max-width: 25em;
+}
+
+.color-purple{
+	background-color: #9064bf;
+	max-width: 25em;
+}
+
+.color-seafoam{
+	background-color: #8ed4cc;
+	max-width: 25em;
+}
+
+.color-orange{
+	background-color: #fe813a;
+	max-width: 25em;
+}
+
+.color-redorange{
+	background-color: #fa575d;
+	max-width: 25em;
+}
+
+.color-yellow{
+	background-color: #ffca0a;
+	max-width: 25em;
+}
+
+.color-brown{
+	background-color: #634806;
+	max-width: 25em;
+}
+
+.color-bluegrey{
+	background-color: #708080;
+	max-width: 25em;
+}
+
+@media only screen and (min-width: 40em){
+	.colorboxsection{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		position: relative;
+		z-index: 10;
+	}
+	
+	.color-block{
+		flex-basis: calc(50% - 1.25em);
+		margin: 0.625em;
+		max-width: none;
+	}
+	
+}
+
+@media only screen and (min-width: 86em){
+	.color-block{
+		flex-basis: calc(33% - 20px);
+	}
+}	
+/* END COLORED BOXES */
+
+.row-fullwidth{
+	margin-top: -2.25em;
+}
+
+
+/* START TOP BUTTON */
+a.topbutton{
+	height: 6em;
+	line-height: 3em;
+	background-color: rgba(255,255,255,.65);
+	transition: background-color 150ms;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	border-radius: 10px;
+	border: none;
+	font-size: 1.5em;
+	padding: 0 0.8125em;
+	font-weight: 500;
+	display: inline-block;
+	color: #444;
+	outline: none;
+	text-decoration: none;
+}
+
+a.topbutton:hover,
+a.topbutton:focus{
+	background-color: rgba(255,255,255,.5);
+}
+
+a.topbutton:focus{
+	border: 1px solid blue;
+}
+/* START BOUNCING ARROW */
+
+.downArrow{
+	bottom: 45%;
+	left: 50%;
+}
+.bounce {
+	-moz-animation: bounce 3s infinite;
+	-webkit-animation: bounce 3s infinite;
+	animation: bounce 3s infinite;
+}
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+  60% {
+    -moz-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+  60% {
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}

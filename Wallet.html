@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SupportiveTransit | Add Money</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling.css" rel="stylesheet">
+
+    <script>
+      function updateConversion() {
+        let conversionRate = 120000; // Assuming 1 Ethereum = 120,000 INR (fetch this dynamically in production)
+        let amountInINR = document.getElementById("amount").value;
+        let ethRequired = (amountInINR / conversionRate).toFixed(6);
+        document.getElementById("ethAmount").innerText = ethRequired;
+      }
+    </script>
+  </head>
+
+  <body id="page-top" class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-trans fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">SupportiveTransit</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="container quest-box clear" style="padding-top: 5em; padding-bottom: 5em;">
+      <h2 class="sub-page-title">Add Money to Your SupportiveTransit Wallet</h2>
+
+      <section class="questions">
+        <div class="form-group">
+          <label for="ethersID">Add Ethers ID</label>
+          <input class="form-control" type="text" id="ethersID" placeholder="Enter your Ethereum Wallet ID">
+        </div>
+
+        <div class="form-group">
+          <label for="conversionRate">Current Ether to INR Conversion Rate</label>
+          <input class="form-control" type="text" id="conversionRate" value="1 Ethereum = 120,000 INR" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount you want to add (INR)</label>
+          <input class="form-control" type="number" id="amount" placeholder="Enter the amount in INR" oninput="updateConversion()">
+        </div>
+
+        <div class="form-group">
+          <label for="ethAmount">Equivalent Ethereum to be deducted:</label>
+          <p><span id="ethAmount">0</span> ETH</p>
+        </div>
+
+        <div class="center middle-quarter">
+          <button class="btn btn-success">Add Money to Wallet</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+    <script type="text/javascript">
+        let provider;
+        let signer;
+        let contract;
+      
+        // ABI of the contract
+        const abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_buyer_address",
+				"type": "address"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_seller_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint32",
+				"name": "_price",
+				"type": "uint32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "previousAdminRole",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "newAdminRole",
+				"type": "bytes32"
+			}
+		],
+		"name": "RoleAdminChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleRevoked",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "AGENT_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "AgentCancelTransaction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "AgentConfirmTransaction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BUYER_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BuyerConfirmDeliver",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BuyerDenyDeliver",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BuyerSendPayment",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "DEFAULT_ADMIN_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "SELLER_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "SellerClaimPayment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "VaultBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "fee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}
+		],
+		"name": "getRoleAdmin",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "hasRole",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "price",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "status",
+		"outputs": [
+			{
+				"internalType": "uint32",
+				"name": "",
+				"type": "uint32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+      
+        // Contract address (replace with your deployed contract address)
+        const contractAddress = "0xDA0bab807633f07f013f94DD0E6A4F96F8742B53";
+      
+        // Function to connect MetaMask
+        async function connectWallet() {
+          if (window.ethereum) {
+            provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            signer = provider.getSigner();
+      
+            // Display connected wallet address
+            document.getElementById("ethersID").value = await signer.getAddress();
+      
+            // Create contract instance
+            contract = new ethers.Contract(contractAddress, abi, signer);
+          } else {
+            alert("Please install MetaMask!");
+          }
+        }
+      
+        // Call connectWallet when page loads
+        window.onload = connectWallet;
+      </script>
+
+    <script>
+      async function addMoney() {
+        let ethAmount = document.getElementById("ethAmount").innerText;
+    
+        if (contract && ethAmount > 0) {
+          try {
+            let transaction = await contract.BuyerSendPayment({
+              value: ethers.utils.parseEther(ethAmount)
+            });
+            
+            // Wait for transaction to be confirmed
+            await transaction.wait();
+            alert("Payment successful!");
+          } catch (error) {
+            console.error("Error making payment:", error);
+            alert("Transaction failed!");
+          }
+        } else {
+          alert("Invalid transaction.");
+        }
+      }
+    </script>
+
+    <!-- Footer and Scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <button class="btn btn-primary" onclick="sellerClaimPayment()">Claim Payment</button>
+
+<script>
+  async function sellerClaimPayment() {
+    try {
+      let transaction = await contract.SellerClaimPayment();
+      await transaction.wait();
+      alert("Payment claimed!");
+    } catch (error) {
+      console.error("Error claiming payment:", error);
+      alert("Transaction failed!");
+    }
+  }
+</script>
+  </body>
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Legalvise | Pricing Options</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling.css" rel="stylesheet">
+    <!-- <link href="style.css" rel="stylesheet"> -->
+
+    <style>
+      .cal {
+        position: relative;
+        padding: 4px;
+        font-weight: bold;
+        background: #bebfc0;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        display: inline-block;
+        vertical-align: baseline;
+        zoom: 1;
+        *display: inline;
+        *vertical-align: auto;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+        }
+      .cal:before {
+        content: '';
+        position: absolute;
+        bottom: 3px;
+        left: 4px;
+        right: 4px;
+        height: 6px;
+        background: #d9d9d9;
+        border: 1px solid #909090;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+      .cal a {
+        text-decoration: none;
+        }
+      .cal tr:first-child td {
+        border-top: 0;
+        }
+      .cal td:first-child {
+        border-left: 0;
+        }
+      .cal tr:first-child a {
+        border-top: 0;
+        margin-top: 0;
+        }
+      .cal tr:last-child a {
+        border-bottom: 0;
+        margin-bottom: 0;
+        }
+      .cal td:first-child a {
+        border-left: 0;
+        margin-left: 0;
+        }
+      .cal td:last-child a {
+        border-right: 0;
+        margin-right: 0;
+        }
+      .cal tr:last-child td:first-child a {
+        border-radius: 0 0 0 3px;
+        }
+      .cal tr:last-child td:last-child a {
+        border-radius: 0 0 3px 0;
+        }
+        
+      .cal-table {
+        position: relative;
+        margin: 0 0 1px;
+        border-collapse: separate;
+        border-left: 1px solid #979797;
+        border-right: 1px solid #979797;
+        border-bottom: 1px solid #bbb;
+        border-radius: 0 0 3px 3px;
+        -webkit-box-shadow: 1px 0 rgba(0, 0, 0, 0.1), -1px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 1px 0 rgba(0, 0, 0, 0.1), -1px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+      .cal-caption {
+        width: 100%;
+        padding-bottom: 1px;
+        line-height: 32px;
+        color: white;
+        text-align: center;
+        text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+        background: #629c2e;
+        border-radius: 3px 3px 0 0;
+        background-image: -webkit-linear-gradient(top, #89c84d, #629c2e 75%, #548d20);
+        background-image: -moz-linear-gradient(top, #89c84d, #629c2e 75%, #548d20);
+        background-image: -o-linear-gradient(top, #89c84d, #629c2e 75%, #548d20);
+        background-image: linear-gradient(to bottom, #89c84d, #629c2e 75%, #548d20);
+        -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px rgba(0, 0, 0, 0.1), inset 0 2px rgba(255, 255, 255, 0.25), 0 1px 3px rgba(0, 0, 0, 0.4);
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px rgba(0, 0, 0, 0.1), inset 0 2px rgba(255, 255, 255, 0.25), 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+      .cal-caption a {
+        line-height: 30px;
+        padding: 0 10px;
+        font-size: 20px;
+        font-weight: normal;
+        color: white;
+        }
+      .cal-caption .prev {
+        float: left;
+        }
+      .cal-caption .next {
+        float: right;
+        }
+        
+      .cal-body td {
+        width: 30px;
+        font-size: 11px;
+        border-top: 1px solid #eaeaea;
+        border-left: 1px solid #eaeaea;
+        }
+      .cal-body a {
+        display: block;
+        position: relative;
+        line-height: 28px;
+        color: #555;
+        text-align: center;
+        background: white;
+        }
+      .cal-body a:hover {
+        background: #fafafa;
+        }
+        
+      .cal-off a {
+        color: #ccc;
+        font-weight: normal;
+        }
+        
+      .cal-today a {
+        color: black;
+        background: #f5f5f5;
+        background-image: -webkit-linear-gradient(top, whitesmoke, white 70%);
+        background-image: -moz-linear-gradient(top, whitesmoke, white 70%);
+        background-image: -o-linear-gradient(top, whitesmoke, white 70%);
+        background-image: linear-gradient(to bottom, whitesmoke, white 70%);
+        }
+        
+      .cal-selected a, .cal-body a:active {
+        margin: -1px;
+        color: #b2494d;
+        background: #fff5f6;
+        border: 1px solid #e7d4d4;
+        }
+        
+      .cal-check a {
+        color: #f79901;
+        overflow: hidden;
+        }
+      .cal-check a:before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        width: 12px;
+        height: 12px;
+        background: #ffb83b;
+        background-image: -webkit-linear-gradient(top, #ffb83b, #ff6c00);
+        background-image: -moz-linear-gradient(top, #ffb83b, #ff6c00);
+        background-image: -o-linear-gradient(top, #ffb83b, #ff6c00);
+        background-image: linear-gradient(to bottom, #ffb83b, #ff6c00);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        }
+        
+      .lt-ie8 .cal-table {
+        *border-collapse: collapse;
+        }
+      .lt-ie8 .cal-body a {
+        zoom: 1;
+        }
+
+      ul {
+          list-style: none;
+		  display: inline-block;
+        }
+		
+  
+    </style>
+
+  </head>
+
+  <body id="page-top" class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-trans fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html"><img class="logo" src="images/logo.png" alt="Legalvise Logo"/>Legalvise</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="appointmentList.html">My Appointments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="surveyStart.html">Schedule your Appointment</a>
+            </li>
+            <li class="nav-item">
+              <a style="background: green; border-radius: 10px;" class="nav-link js-scroll-trigger" href="https://qnamaker.ai/Edit/Test?kbId=675d6f7f-92f6-43a0-b62d-3c5c1525f2d6">Bot Chat</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <header class="bk-hero text-white">
+      <div class="container text-center">
+        <h1>Legalvise</h1>
+        <p class="lead">Welcome, Name! Choose the category you need legal aid on</p>
+      </div>
+    </header> -->
+	
+<main style="padding-bottom: 2em; margin-top: 8em;" class="container quest-box clear">
+    <h2 class="sub-page-title">Schedule your appointment</h2>
+		<section style="padding-top: 2em;" class="questions center">
+      <!-- Go to the more details page or video page -->
+			<a style="display: inline-block; margin-right: 1.75em;" class="button small" href="paymentoptions.html">See a professional now</a>
+      <a style="display: inline-block; color: #fff;" class="button small" onclick="showCal()">Schedule an appointment</a>
+      <section id="cal" style="display:none">
+          <div class="cal">
+            <table class="cal-table">
+              <caption class="cal-caption">
+                <a class="prev">&laquo;</a>
+                <a class="next">&raquo;</a>
+                Feburary 2018
+              </caption>
+              <tbody class="cal-body">
+                <tr>
+                  <td class="cal-off"><a>28</a></td>
+                  <td class="cal-off"><a>29</a></td>
+                  <td class="cal-off"><a>30</a></td>
+                  <td class="cal-today"><a>3</a></td>
+                  <td><a>1</a></td>
+                  <td><a>2</a></td>
+                  <td><a>3</a></td>
+                </tr>
+                <tr>
+                  <td><a>4</a></td>
+                  <td><a>5</a></td>
+                  <td><a>6</a></td>
+                  <td><a>7</a></td>
+                  <td><a>8</a></td>
+                  <td><a>9</a></td>
+                  <td><a>10</a></td>
+                </tr>
+                <tr>
+                  <td><a>11</a></td>
+                  <td><a>12</a></td>
+                  <td><a>13</a></td>
+                  <td><a>14</a></td>
+                  <td><a>15</a></td>
+                  <td><a>16</a></td>
+                  <td><a>17</a></td>
+                </tr>
+                <tr>
+                  <td><a>18</a></td>
+                  <td><a>19</a></td>
+                  <td><a>20</a></td>
+                  <td><a>21</a></td>
+                  <td><a>22</a></td>
+                  <td><a>23</a></td>
+                  <td><a>24</a></td>
+                </tr>
+                <tr>
+                  <td class="cal-selected"><a>25</a></td>
+                  <td><a>26</a></td>
+                  <td><a>27</a></td>
+                  <td><a>28</a></td>
+                  <td class="cal-off"><a>1</a></td>
+                  <td class="cal-off"><a>2</a></td>
+                  <td class="cal-off"><a>3</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <div id="times" style="display:none"></div>
+		</section>
+</main>
+
+    <!-- Footer -->
+    <!--<footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Global Legal Hackathon 2018</p>
+      </div>
+      </footer>-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+    <!-- clicking Schedule button -->
+    <script>
+      function showCal() {
+        let calendar = document.getElementById("cal");
+        calendar.style.display = "block";
+        let dates = document.getElementsByTagName("td");
+        let timeArea = document.getElementById("times");
+        for(let i = 2; i < dates.length; i++) {
+          dates[i].onclick = () => {
+            timeArea.innerHTML = "";
+            timeArea.style.display = "block";
+            let list = document.createElement("ul");
+            let listElement = document.createElement("li");
+            let link = document.createElement("a");
+            link.setAttribute('href',"paymentOptions.html");
+            link.innerHTML = "11:00 AM";
+            link.classList.add("button");
+			link.classList.add("small");
+            listElement.appendChild(link);
+            list.appendChild(listElement);
+            listElement = document.createElement("li");
+            link = document.createElement("a");
+            link.setAttribute('href',"paymentOptions.html");
+            link.innerHTML = "11:20 AM";
+            link.classList.add("button");
+			link.classList.add("small");
+            listElement.appendChild(link);
+            list.appendChild(listElement);
+            listElement = document.createElement("li");
+            link = document.createElement("a");
+            link.setAttribute('href',"paymentOptions.html");
+            link.innerHTML = "11:40 AM";
+            link.classList.add("button");
+			link.classList.add("small");
+            listElement.appendChild(link);
+            list.appendChild(listElement);
+            listElement = document.createElement("li");
+            link = document.createElement("a");
+            link.setAttribute('href',"paymentOptions.html");
+            link.innerHTML = "12:00 PM";
+            link.classList.add("button");
+			link.classList.add("small");
+            listElement.appendChild(link);
+            list.appendChild(listElement);
+            timeArea.appendChild(list);
+          }
+        }
+      }
+
+    </script>
+
+  </body>
+
+</html>

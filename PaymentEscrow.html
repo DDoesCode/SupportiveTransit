@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Legalvise | Payment Options</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top" class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-trans fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html"><img class="logo" src="images/logo.png" alt="Legalvise Logo"/>Legalvise</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="appointmentList.html">My Appointments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="surveyStart.html">Schedule your Appointment</a>
+            </li>
+            <li class="nav-item">
+              <a style="background: green; border-radius: 10px;" class="nav-link js-scroll-trigger" href="https://qnamaker.ai/Edit/Test?kbId=675d6f7f-92f6-43a0-b62d-3c5c1525f2d6">Bot Chat</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <header class="bk-hero text-white">
+      <div class="container text-center">
+        <h1>Legalvise</h1>
+        <p class="lead">Welcome, Name! Choose the category you need legal aid on</p>
+      </div>
+    </header> -->
+	<div class="center pad-top container">
+		<a class="button small float-left" href="pricingPreview.html">< Back</a>
+		<a class="button small float-right" href="schedule.html">Next ></a>
+	</div>
+	
+<main style="padding-bottom: 5em;" class="container quest-box clear">
+    <h2 class="sub-page-title">Payment Method</h2>
+    <p class="description">Your consultation will cost $75. Please enter your credit card information below:</p>
+	
+	<section class="questions">
+		<div class="questions">
+		<label class="quest-tag" for="number">Card Number</label>
+		<input class="text-box" type="text" id="number">
+		<label class="quest-tag" for="month">Expiration Date</label>
+		<select class="text-box" id="month">
+			<option value="">month</option>
+			<option value="January">January</option>
+			<option value="Febuary">Febuary</option>
+			<option value="March">March</option>
+			<option value="April">April</option>
+			<option value="May">May</option>
+			<option value="June">June</option>
+			<option value="July">July</option>
+			<option value="August">August</option>
+			<option value="September">September</option>
+			<option value="October">October</option>
+			<option value="November">November</option>
+			<option value="December">December</option>
+		</select>
+		<label class="quest-tag" for="year">Year</label>
+		<select class="text-box" id="year">
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+			<option value="2021">2021</option>
+			<option value="2022">2022</option>
+			<option value="2023">2023</option>
+			<option value="2024">2024</option>
+			<option value="2025">2025</option>
+			<option value="2026">2026</option>
+			<option value="2027">2027</option>
+			<option value="2028">2028</option>
+			<option value="2029">2029</option>
+			<option value="2030">2030</option>
+			<option value="2031">2031</option>
+			<option value="2032">2032</option>
+		</select>
+		<label class="quest-tag" for="cvv">CVV</label>
+		<input class="text-box" type="text" id="cvv">
+		<label class="quest-tag" for="zip">Billing Zip Code</label>
+		<input class="text-box" type="text" id="zip">
+		</div>
+	</section>
+		<div class="center middle-quarter">
+			<a class="button" href="schedule.html">Review your visit request</a>
+		</div>
+</main>
+
+
+    <!-- Footer -->
+    <!--<footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Global Legal Hackathon 2018</p>
+      </div>
+      </footer>-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+    <script type="text/javascript">
+        let provider;
+        let signer;
+        let contract;
+      
+        // ABI of the contract
+        const abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_buyer_address",
+				"type": "address"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_seller_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint32",
+				"name": "_price",
+				"type": "uint32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "previousAdminRole",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "newAdminRole",
+				"type": "bytes32"
+			}
+		],
+		"name": "RoleAdminChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleRevoked",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "AGENT_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "AgentCancelTransaction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "AgentConfirmTransaction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BUYER_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BuyerConfirmDeliver",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BuyerDenyDeliver",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "BuyerSendPayment",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "DEFAULT_ADMIN_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "SELLER_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "SellerClaimPayment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "VaultBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "fee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}
+		],
+		"name": "getRoleAdmin",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "hasRole",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "price",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "status",
+		"outputs": [
+			{
+				"internalType": "uint32",
+				"name": "",
+				"type": "uint32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+      
+        // Contract address (replace with your deployed contract address)
+        const contractAddress = "0xDA0bab807633f07f013f94DD0E6A4F96F8742B53";
+      
+        // Function to connect MetaMask
+        async function connectWallet() {
+          if (window.ethereum) {
+            provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            signer = provider.getSigner();
+      
+            // Display connected wallet address
+            document.getElementById("ethersID").value = await signer.getAddress();
+      
+            // Create contract instance
+            contract = new ethers.Contract(contractAddress, abi, signer);
+          } else {
+            alert("Please install MetaMask!");
+          }
+        }
+      
+        // Call connectWallet when page loads
+        window.onload = connectWallet;
+      </script>
+
+<button class="btn btn-success" onclick="addMoney()">Add Money to Wallet</button>
+
+<script>
+  async function addMoney() {
+    let ethAmount = document.getElementById("ethAmount").innerText;
+
+    if (contract && ethAmount > 0) {
+      try {
+        let transaction = await contract.BuyerSendPayment({
+          value: ethers.utils.parseEther(ethAmount)
+        });
+        
+        // Wait for transaction to be confirmed
+        await transaction.wait();
+        alert("Payment successful!");
+      } catch (error) {
+        console.error("Error making payment:", error);
+        alert("Transaction failed!");
+      }
+    } else {
+      alert("Invalid transaction.");
+    }
+  }
+</script>
+
+<button class="btn btn-primary" onclick="sellerClaimPayment()">Claim Payment</button>
+
+<script>
+  async function sellerClaimPayment() {
+    try {
+      let transaction = await contract.SellerClaimPayment();
+      await transaction.wait();
+      alert("Payment claimed!");
+    } catch (error) {
+      console.error("Error claiming payment:", error);
+      alert("Transaction failed!");
+    }
+  }
+</script>
+
+  </body>
+
+</html>

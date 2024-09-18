@@ -1,0 +1,259 @@
+@media (min-width: 992px) {
+  header {
+    padding: 5em 0 0 0;
+  }
+}
+
+body{
+	min-height: 70em;
+}
+
+main {
+	min-height: 40em;
+}
+
+h2.sub-page-title {
+	text-align: center;
+	font-size: 2.5em;
+	padding-top: 2em;
+
+}
+
+h3 {
+	font-size: 1.5em;
+	text-align: center;
+	padding-bottom: .5em;
+}
+
+p.description{
+	text-align: center;
+}
+
+/* CUSTOM ID SECTIONS */
+#collaboration{
+	margin-top: 7.5em;
+}
+
+a.box-link{
+	text-align: center;
+	margin: auto;
+	display: block;
+	padding: .75em 0 1.25em 0;
+}
+
+.bg-dark-trans{
+	background: rgba(46,54,65,.75);
+}
+
+/* CUSTOM CLASSES BOXES */
+
+img.logo{
+	width: 30%;
+	padding-right: .75em;
+}
+
+img.hero{
+	width: 100%;
+}
+
+ul.attributes{
+	text-align: left;
+	padding: 1.5em .75em;
+	border-top: 1px solid #ebf1f1;
+}
+
+.shaded-card{
+	background-color: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+	border-radius: 0px;
+	margin: auto;
+	margin-bottom: 1.5em;
+	max-width: 24em;
+	padding: 2em 3em;
+	max-height: 30em;
+	min-height: 29em;
+}
+
+.colorboxsection{
+	max-width: 72em;
+	margin: auto;
+}
+
+.bgclr-grey{
+	background-color: #eee;
+}
+
+a.button{
+	background-color: #2b90d9;
+	border: 1px solid #2482c7;
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	padding: .5em 1.75em;
+	display: block;
+	text-decoration: none;
+}
+
+a.button:hover,
+a.button:focus{
+	border: 1px solid #000;
+	background: #333;
+	text-decoration: none;
+}
+
+a.forward-btn:hover,
+a.forward-btn:focus{
+	background-color: #2b90d9;
+	border: 1px solid #2482c7;
+}
+
+.bkwrd-btn{
+	background-color: #59616c;
+	border: 1px solid #4d545e;
+}
+
+.small{
+	min-width: 8em;
+	max-width: 14em;
+	padding: .75em 0;
+	margin-bottom: 1.75em;
+	display: inline-block;
+	font-size: 1em;
+}
+	
+.bk-hero{
+	background-image: url("/gavel.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: #fff;
+	background: #000;
+}
+
+
+@media only screen and (min-width: 40em){
+	.colorboxsection{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		position: relative;
+		z-index: 10;
+	}
+
+	/*.flex-shift{
+		flex-basis: calc(33% - 1.5em);
+		margin: 1em;
+		max-width: 100%;
+	} */
+
+	.flex-shift{
+		margin: 1em;
+		max-width: 100%;
+	}
+	
+	.container-small{
+		width:75%;
+		margin: auto;
+	}
+}
+
+.pad-top{
+	padding-top: 7.5em;
+}
+
+section.appointment{
+	border-bottom: 1px solid #ebf1f1;
+	padding: 1.25em;
+	margin: 1em 9em 2em;
+}
+
+.appt-space{
+	padding-left: 5.2em;
+}
+
+/* FORM STYLES */
+.info-box{
+	width: 100%;
+	padding: .5em;
+	display: block;
+	margin-bottom: 1.75em;
+}
+
+.quest-tag{
+	text-align: center;
+	padding: 0;
+}
+.radio{
+	display: inline-block;
+}
+
+.text-box{
+	width: 100%;
+	padding: .5em;
+	display: block;
+	margin-bottom: 1.75em;
+}
+
+.questions{
+	max-width: 75%;
+	margin: 1em auto 1.25em auto;
+}
+.form-button{
+	margin-bottom: 1.75em;
+}
+
+.quest-box{
+	background-color: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+	min-height: 46em;
+}
+
+.back{
+	background-color: #424850;
+	border-color: #32363c;
+}
+
+.middle-quarter{
+	width: 35%;
+}
+
+
+/* OVERRIDES */
+.lead{
+	font-size: 1.5rem;
+	font-weight: 600;
+	background: rgba(46,54,65,.75);
+	width: 100%;
+	line-height: 2.75em;
+	position: absolute;
+}
+
+.navbar-brand{
+	font-size: 1.5rem;
+}
+
+.center{
+	margin: auto;
+	text-align: center;
+}
+
+.clear{
+	clear: both;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float: right;
+}
+
+.space-right{
+	margin-right: 2em;
+}
