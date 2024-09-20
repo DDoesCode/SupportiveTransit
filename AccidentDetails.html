@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SupportiveTransit | Accident Details</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top" class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-trans fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html"><img class="logo" src="images/logo.png" alt="SuportiveTransit Logo"/>SupportiveTransit</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="appointmentList.html">My Appointments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="surveyStart.html">Schedule your Appointment</a>
+            </li>
+            <li class="nav-item">
+              <a style="background: green; border-radius: 10px;" class="nav-link js-scroll-trigger" href="https://qnamaker.ai/Edit/Test?kbId=675d6f7f-92f6-43a0-b62d-3c5c1525f2d6">Bot Chat</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="center pad-top container">
+      <a class="button small float-left" href="pricingPreview.html">< Back</a>
+      <a class="button small float-right" href="additionalInformation.html">Next ></a>
+    </div>
+    
+    <main class="container quest-box clear">
+      <h2 class="sub-page-title">Accident Details</h2>
+      <div class="questions">
+        <!-- Accident Date -->
+        <section class="questions center">
+          <h3>What is the date of the accident?</h3>
+          <input class="text-box" type="date">
+        </section>
+
+        <!-- Accident Location: State -->
+        <section class="questions center">
+          <h3>In which state did the accident occur?</h3>
+          <input class="text-box" type="text">
+        </section>
+
+        <!-- Accident Location: City -->
+        <section class="questions center">
+          <h3>In which city did the accident occur?</h3>
+          <input class="text-box" type="text">
+        </section>
+
+        <!-- Accident Time -->
+        <section class="questions center">
+          <h3>What time did the accident happen?</h3>
+          <input class="text-box" type="time">
+        </section>
+
+        <!-- Vehicles Involved -->
+        <section class="questions center">
+          <h3>How many vehicles were involved?</h3>
+          <input class="text-box" type="number" min="1">
+        </section>
+
+        <!-- Responsible Party -->
+        <section class="questions center">
+          <h3>Who do you think is responsible for the accident?</h3>
+          <select class="text-box" id="responsible-party">
+            <option value="Select">Choose an Option</option>
+            <option value="Me">Me</option>
+            <option value="Other Party">Other Party</option>
+            <option value="Undetermined">Undetermined</option>
+          </select>
+        </section>
+
+        <!-- Police Involvement -->
+        <section class="questions center">
+          <h3>Did the police arrive at the scene?</h3>
+          <select class="text-box" id="police-arrival">
+            <option value="Select">Choose an Option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </section>
+
+        <!-- Witnesses -->
+        <section class="questions center">
+          <h3>Were there any witnesses to the accident?</h3>
+          <select class="text-box" id="witnesses">
+            <option value="Select">Choose an Option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </section>
+
+        <!-- Injuries -->
+        <section class="questions center">
+          <h3>Were there any injuries sustained in the accident?</h3>
+          <select class="text-box" id="injuries">
+            <option value="Select">Choose an Option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <!--<footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Global Legal Hackathon 2018</p>
+      </div>
+    </footer>-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+  </body>
+
+</html>

@@ -1,11 +1,43 @@
 @media (min-width: 992px) {
-  header {
-    padding: 5em 0 0 0;
-  }
-}
+	#mainNav {
+		position: fixed;
+		top: -70px; /* Adjust based on your navbar's height */
+		width: 100%;
+		transition: top 0.3s;
+		z-index: 9999;
+	  }
+	  
+	.navbar-brand {
+		font-size: 1.25rem; /* Decrease the font size of the brand */
+	  }
+
+
+      /* Navbar height adjustment */
+      .navbar {
+        padding: 0.5rem 1rem; /* Adjust height by reducing padding */
+      }
+
+      .navbar-brand {
+        padding: 0.25rem 0; /* Reduce padding for logo */
+      }
+
+      .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem; /* Adjust nav link padding to reduce height */
+      }
+
+      /* Ensure navbar collapses fully */
+      .navbar-collapse {
+        flex-grow: 0;
+      }
+
+      /* Adjust navbar on collapse */
+      .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+      }
+
 
 body{
-	min-height: 70em;
+	min-height: 30em;
 }
 
 main {
@@ -48,7 +80,7 @@ a.box-link{
 /* CUSTOM CLASSES BOXES */
 
 img.logo{
-	width: 30%;
+	width: 25%;
 	padding-right: .75em;
 }
 
@@ -233,9 +265,11 @@ section.appointment{
 	position: absolute;
 }
 
-.navbar-brand{
-	font-size: 1.5rem;
-}
+.navbar-nav .nav-link {
+    font-size: 0.875rem; /* Decrease font size of nav links */
+    padding: 0.5em 0.75em; /* Adjust padding around links */
+  }
+
 
 .center{
 	margin: auto;
@@ -256,4 +290,5 @@ section.appointment{
 
 .space-right{
 	margin-right: 2em;
+}
 }

@@ -26,4 +26,27 @@
     offset: 54
   });
 
+      // Get the navbar element
+      var navbar = document.getElementById("mainNav");
+    
+      // Track previous scroll position
+      var lastScrollTop = 0;
+    
+      // Add scroll event listener
+      window.addEventListener("scroll", function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (scrollTop > lastScrollTop) {
+          // Scrolling down, hide the navbar
+          navbar.style.top = "-70px"; // Adjust height based on your navbar's height
+        } else {
+          // Scrolling up, show the navbar
+          navbar.style.top = "0";
+        }
+    
+        // Update lastScrollTop with the new position
+        lastScrollTop = scrollTop;
+      });
+    
+
 })(jQuery); // End of use strict
