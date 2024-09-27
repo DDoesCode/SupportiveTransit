@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legalvise | Client Bids</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .accept-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .reject-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Legalvise</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointmentList.html">My Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Wallet.html">My Wallet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="surveyStart.html">Schedule your Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Lawyer Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Client Bids</h2>
+        <div id="bidsContainer" class="row">
+            <!-- Dynamic bid cards will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample data for demonstration purposes
+        const bids = [
+            {
+                id: 1,
+                clientName: "John Doe",
+                offerAmount: "$2000",
+                accidentDetails: "Minor car accident at Main St.",
+            },
+            {
+                id: 2,
+                clientName: "Jane Smith",
+                offerAmount: "$3500",
+                accidentDetails: "Major accident involving multiple vehicles.",
+            },
+            {
+                id: 3,
+                clientName: "Emily Johnson",
+                offerAmount: "$1500",
+                accidentDetails: "Slip and fall incident.",
+            }
+        ];
+
+        function loadBids() {
+            const bidsContainer = document.getElementById('bidsContainer');
+
+            bids.forEach(bid => {
+                const bidCard = document.createElement('div');
+                bidCard.className = 'col-md-4';
+
+                bidCard.innerHTML = `
+                    <div class="card p-3">
+                        <h5>${bid.clientName}</h5>
+                        <p>Offer: ${bid.offerAmount}</p>
+                        <p>Accident Details: ${bid.accidentDetails}</p>
+                        <button class="accept-btn" onclick="acceptBid(${bid.id})">Accept</button>
+                        <button class="reject-btn" onclick="rejectBid(${bid.id})">Reject</button>
+                    </div>
+                `;
+
+                bidsContainer.appendChild(bidCard);
+            });
+        }
+
+        function acceptBid(bidId) {
+            alert(`You have accepted the bid from Client ID: ${bidId}`);
+            // Implement your logic to handle accepted bids
+        }
+
+        function rejectBid(bidId) {
+            alert(`You have rejected the bid from Client ID: ${bidId}`);
+            // Implement your logic to handle rejected bids
+        }
+
+        // Load bids on page load
+        window.onload = loadBids;
+    </script>
+</body>
+</html>

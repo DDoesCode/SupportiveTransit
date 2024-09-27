@@ -1,0 +1,171 @@
+/* STYLES FOR BIDDING SYSTEM */
+
+/* MAIN STYLE RESETS */
+h1 {
+    color: #fff;
+}
+
+h2 {
+    color: #444;
+}
+
+/* HIDE EXTERNAL SHARE BOX */
+#DeltaPageStatusBar {
+    display: none;
+}
+
+/* MAIN NAVIGATION */
+#header ul.main-menu > li {
+    margin: 0 1em;
+}
+
+/* BIDDING SYSTEM MAIN SECTION */
+#bidding-spotlight {
+    background-image: url('https://example.com/your-image-url.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    margin: auto;
+}
+
+.bidding-headline {
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    padding: 12em 2em;
+    margin: auto;
+}
+
+.bidding-mainhead {
+    z-index: 9999;
+    color: #fff;
+    font-size: 5em;
+    font-weight: 800;
+}
+
+.bidding-subhead {
+    z-index: 9999;
+    color: #fff;
+    font-size: 2em;
+    padding-bottom: 1em;
+}
+
+@media only screen and (max-width: 40em) {
+    .bidding-mainhead {
+        font-size: 3em;
+    }
+
+    .bidding-subhead {
+        font-size: 1.75em;
+    }
+}
+
+/* BIDDING BUTTONS */
+a.bidding-button {
+    height: 3em;
+    line-height: 3em;
+    background-color: rgba(0, 0, 0, .15);
+    transition: background-color 150ms;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.15em;
+    padding: 0 0.8125em;
+    font-weight: 500;
+    display: inline-block;
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+    margin-bottom: .8em;
+}
+
+a.bidding-button:hover,
+a.bidding-button:focus {
+    background-color: rgba(0, 0, 0, .25);
+}
+
+a.bidding-button:focus {
+    border: 1px solid blue;
+}
+
+/* MISC STYLES */
+.float-left {
+    float: left;
+    overflow: hidden;
+}
+
+.float-right {
+    float: right;
+    overflow: hidden;
+}
+
+.align-left {
+    text-align: left;
+    padding: 1em .5em 0 0;
+}
+
+.align-top {
+    padding-top: 0;
+}
+
+.inline {
+    display: inline;
+    font-family: segoe ui;
+}
+
+.border-top {
+    border-top: 1px solid #eee;
+    margin-top: 3em;
+}
+
+ul.nobullet {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/* BIDDING SECTION BACKGROUND COLORS */
+.bidding-orange-back {
+    background-color: #d83b01;
+}
+
+.bidding-green-back {
+    background-color: #107c10;
+}
+
+/* BOTTOM BUTTON STYLES */
+a.bottom-button {
+    height: 3em;
+    line-height: 3em;
+    background-color: rgba(255, 255, 255, .75);
+    transition: background-color 150ms;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-radius: 10px;
+    border: none;
+    font-size: 1em;
+    padding: 0 0.8125em;
+    font-weight: 500;
+    display: inline-block;
+    color: #444;
+    outline: none;
+    text-decoration: none;
+}
+
+a.bottom-button:hover,
+a.bottom-button:focus {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+a.bottom-button:focus {
+    border: 1px solid blue;
+}
+
+/* END BIDDING SYSTEM STYLES */

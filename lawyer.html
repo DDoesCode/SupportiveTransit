@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawyer List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .lawyer-card {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Supportive Tansit</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 20px;">
+        <h2>Lawyers Who Accepted Your Bid!</h2>
+        <div class="row">
+            <div class="col-md-4 lawyer-card">
+                <h4>Lawyer Name 1</h4>
+                <p>Specialization: Road Accident</p>
+                <button class="btn btn-primary lawyer-button" data-name="Lawyer Name 1">Select Lawyer</button>
+            </div>
+            <div class="col-md-4 lawyer-card">
+                <h4>Lawyer Name 2</h4>
+                <p>Specialization: Speeding, Drink and Drive</p>
+                <button class="btn btn-primary lawyer-button" data-name="Lawyer Name 2">Select Lawyer</button>
+            </div>
+            <div class="col-md-4 lawyer-card">
+                <h4>Lawyer Name 3</h4>
+                <p>Specialization: Road Rash Driving</p>
+                <button class="btn btn-primary lawyer-button" data-name="Lawyer Name 3">Select Lawyer</button>
+            </div>
+            <!-- Add more lawyer cards as needed -->
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.lawyer-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const lawyerName = this.getAttribute('data-name');
+                alert(You have selected ${lawyerName}.);
+                window.location.href = "paymentOptions.html"; // Redirect to payment options
+            });
+        });
+    </script>
+</body>
+</html>

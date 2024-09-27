@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        /* Styles for buttons and form layout */
+        #button_container button {
+            width: 50%;
+            height: 100%;
+            float: left;
+            background: transparent;
+            color: inherit;
+            font-family: Montserrat;
+            letter-spacing: 1px;
+            font-weight: 900;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-btn:hover {
+            background-color: #0069d9;
+            cursor: pointer;
+        }
+
+        .signup-btn:active {
+            background-color: #0056b3;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(2px);
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legalvise | Lawyer Sign-Up</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/scrolling.css" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Firebase SDKs for v8.x -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="js/lawyersignup.js"></script>
+</head>
+
+<body id="page-top" class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-trans fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">
+                <img class="logo" src="images/logo.png" alt="SupportiveTransit Logo" style="height: 80px;" />
+                Supportive Transit
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="appointmentList.html">My Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="Wallet.html">My Wallet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="surveyStart.html">Schedule your Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="login.html">Lawyer Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bk-hero text-white">
+        <img class="hero" src="images/gavel.png" alt="gavel and legal scale" />
+        <div class="container text-center">
+            <h1 style="display:none;">Legalvise</h1>
+        </div>
+        <p class="lead">Welcome Lawyers! Please sign up for our platform</p>
+    </header>
+
+    <!-- Sign-Up Form Container -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="SignupForm" class="shaded-card" onsubmit="register(event)">
+                    <div class="inputBox mb-4">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" id="name" placeholder="Full Name" required />
+                    </div>
+
+                    <div class="inputBox mb-4">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" required />
+                    </div>
+
+                    <div class="inputBox mb-4">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" class="form-control" id="barNumber" placeholder="Bar Registration Number" required />
+                    </div>
+
+                    <div class="inputBox mb-4">
+                        <i class="fas fa-book"></i>
+                        <input type="text" class="form-control" id="specialty" placeholder="Legal Specialty (e.g., Criminal, Corporate)" required />
+                    </div>
+
+                    <div class="inputBox mb-4">
+                        <label for="states">Select your practicing state:</label>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select id="states" class="form-control" name="states" required>
+                            <option value="" disabled selected>Select your state</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <!-- Add other states as needed -->
+                        </select>
+                    </div>
+
+                    <div class="inputBox mb-4">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required />
+                    </div>
+
+                    <div class="inputBox mb-4">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" id="email" placeholder="Email ID" required />
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="signup-btn">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
